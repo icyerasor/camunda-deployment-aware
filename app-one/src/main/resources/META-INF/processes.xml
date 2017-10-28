@@ -1,0 +1,16 @@
+<process-application
+        xmlns="http://www.camunda.org/schema/1.0/ProcessApplication">
+    <process-archive name="processes">
+        <resource>parent_process.bpmn</resource>
+        <resource>app_one_proc.bpmn</resource>
+
+        <!-- including this will poison deployment awareness, as it is shared in both engines -->
+        <resource>dummy.bpmn</resource>
+
+        <properties>
+            <property name="isDeleteUponUndeploy">false</property>
+            <!-- set to true to have dummy included automatically -->
+            <property name="isScanForProcessDefinitions">false</property>
+        </properties>
+    </process-archive>
+</process-application>
